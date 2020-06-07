@@ -35,3 +35,83 @@ nav ul li a {
     text-decoration: none;
     font-size: 0.8em;
 }
+
+/* Burger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -8px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(234, 192, 255);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* Burger Menu animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(3) {}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+/* Jika input checked maka sibling(~) ke span:nth-child(2) */
+
+.menu-toggle input:checked~span:nth-child(2) {
+    /* transform: rotate(45deg) translate(-1px, -1px); */
+    transform: rotate(45deg);
+    width: 25px;
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    /* transform: scale(0); */
+    transform: translateX(15px);
+    opacity: 0;
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    /* transform: rotate(-45deg) translate(-1px, 0); */
+    transform: rotate(-45deg);
+    width: 25px;
+}
+
+/* Responsive Breakpoint */
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
